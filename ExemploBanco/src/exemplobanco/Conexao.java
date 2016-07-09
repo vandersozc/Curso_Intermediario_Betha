@@ -25,11 +25,10 @@ public class Conexao {
     private String usuario;
     private String senha;
 
-    private final Conexao INSTANCIA;
-    
-    public Conexao() {
-        
-         try {
+    private static Conexao INSTANCIA;
+
+    private Conexao() {
+        try {
             url = "jdbc:postgresql://localhost:5432/pedidos";
             usuario = "postgres";
             senha = "postgres";
@@ -38,17 +37,15 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static Conexao getConexao(){
-        if(INSTANCIA == null) {
+
+    public static Conexao get() {
+        if (INSTANCIA == null) {
             INSTANCIA = new Conexao();
-            return INSTANCIA;
         }
-    }
-    
-    public void getConn(){
-        
-        
+        return INSTANCIA;
     }
 
+    public Connection getConn() {
+        return conn;
+    }
 }

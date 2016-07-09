@@ -30,6 +30,9 @@ public class ExemploBanco {
             String nome = rs.getString("nome");
             BigDecimal valorTotal = rs.getBigDecimal("valor_total");
             Date ultimaCompra = rs.getDate("ultima_compra");
+            
+             System.out.println(String.format("%s|%s|%.2f|%s|",
+                     codigo, nome,valorTotal,ultimaCompra));
         }
     }
     

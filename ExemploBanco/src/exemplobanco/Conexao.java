@@ -45,5 +45,10 @@ public class Conexao {
             return INSTANCIA;
         }
     }
+    
+    public void getConn(){
+        
+        
+    }
 
 }
